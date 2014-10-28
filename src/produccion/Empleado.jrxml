@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b95e49f-1f32-4e58-8f77-69ad32ba6f50">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="empleado" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+   u.nombre,u.apellido, 
+   b.idprodTerminado, b.fecha, b.pesa,b.idPEDIDO
+FROM emplProdTerm ub
+INNER JOIN EMPLEADO u ON ub.idEmpleado =  u.idEmpleado
+INNER JOIN productoTerminado b ON ub.idprodTerminado =  b.idprodTerminado
+where cedula=$P{empleado}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="pesa" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="idprodTerminado" class="java.lang.String"/>
+	<field name="idPEDIDO" class="java.lang.String"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="13ffc0f5-427d-4253-b1e6-0416a86fb1a8" x="230" y="26" width="100" height="20"/>
+				<textElement>
+					<font fontName="Adobe Devanagari"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0bedb659-37fb-4286-b7f9-00164d7dc911" x="0" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eceed8ea-e0dc-4894-823a-c206eab20880" x="100" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c95dfec-7411-4802-a9d3-8e6e97b9deba" x="283" y="20" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[pesa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8568840e-0fb2-422e-b2a7-6a6e159f0f78" x="200" y="20" width="83" height="20"/>
+				<textElement/>
+				<text><![CDATA[idprodTerminado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2c05ba45-ef29-49b0-9324-8fe425f68e3a" x="353" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c265cbc7-6d26-43c4-b106-e659ef3bdd5f" x="455" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[idPEDIDO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e81dad3a-c345-40ed-9b03-6cdbf98def3e" x="0" y="12" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f4dc6517-036b-4bed-abd9-155cc226fbb1" x="100" y="12" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a568a5f-1867-451d-b74a-bdc2069d9cea" x="283" y="12" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pesa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="63cda374-9109-4592-8c9e-26c1b28c0abb" x="200" y="12" width="83" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{idprodTerminado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5f622e87-4bae-4368-8375-2428ce28158c" x="353" y="12" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1aae0d3d-719d-4c08-9c92-3b0ba31a2151" x="455" y="12" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{idPEDIDO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62292e91-01fb-4e7d-9163-7dc6234672fb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaUno" class="java.lang.String"/>
+	<parameter name="fechaDos" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from productoTerminado where fecha between $P{fechaUno} and $P{fechaDos};]]>
+	</queryString>
+	<field name="idPEDIDO" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="pesa" class="java.lang.String"/>
+	<field name="idprodTerminado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0c40e9a1-d92c-4455-b070-2efb58a7c7a8" x="225" y="28" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Por fecha]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9fccec9c-b913-4aa3-89a0-9f79a60b0b45" x="6" y="41" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[idPEDIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="559c39cd-80c7-47c6-b678-be1be3d68baa" x="158" y="41" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="141cf7fd-e62c-4d15-ae44-859f02812e99" x="293" y="41" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[pesa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="36351c77-74a6-448f-b1d0-5445ea6adb5d" x="436" y="41" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[idprodTerminado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2b227ca9-8897-45bc-b00a-653505ff63f7" x="6" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{idPEDIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e8102963-2263-4bc4-99a0-bcb567b62356" x="158" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="661571c5-3dd9-49fb-81c9-0a8a94a152ea" x="293" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pesa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cbc6d41e-a791-4522-a6d4-f15d3ffa372a" x="436" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{idprodTerminado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
